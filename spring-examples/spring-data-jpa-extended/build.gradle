@@ -27,6 +27,7 @@ dependencies {
     compile 'org.liquibase:liquibase-core'
     compile 'org.slf4j:slf4j-api:1.7.21'
     compile files('src/main/resources/lib/ojdbc14.jar')
+    compile files('src/main/resources/lib/mapper.jar')
 
     testCompile 'junit:junit:4.12'
     testCompile('org.springframework.boot:spring-boot-starter-test')
