@@ -1,12 +1,13 @@
 package tr.com.erhankarakaya.examples.jpa.dal.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
+  @Id
+  @SequenceGenerator(name="SEQ_GEN", sequenceName="SEQ_Product_Id", allocationSize=1)
+  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_GEN")
   @Column(name = "ID", columnDefinition = "NUMBER")
   private Integer id;
 
