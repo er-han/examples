@@ -1,9 +1,11 @@
 package tr.com.erhankarakaya.examples.jpa.bll.dto;
 
+import mapper.Mappable;
+
 /**
  * Created by erhan.karakaya on 3/17/2017.
  */
-public class ProductDto {
+public class ProductDto implements Mappable{
   private Integer id;
   private String title;
   private Integer quantity;

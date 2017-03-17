@@ -1,10 +1,12 @@
 package tr.com.erhankarakaya.examples.jpa.dal.entity;
 
+import mapper.Mappable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Mappable{
   @Id
   @SequenceGenerator(name="SEQ_GEN", sequenceName="SEQ_Product_Id", allocationSize=1)
   @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_GEN")
