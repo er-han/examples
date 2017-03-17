@@ -9,10 +9,19 @@
 
     <changeSet id="create-product-table" author="erhan.karakaya">
         <createTable tableName="PRODUCT">
-            <column name="ID" type="NUMBER"/>
+            <column name="ID" type="NUMBER">
+                <constraints primaryKey="true" primaryKeyName="PK_Product_Id" nullable="false"/>
+            </column>
             <column name="TITLE" type="NVARCHAR2(250)"/>
             <column name="QUANTITY" type="NUMBER"/>
         </createTable>
+        <sql>
+            create sequence SEQ_Product_Id
+            minvalue 1
+            maxvalue 9999999999999999999999999999
+            start with 1
+            increment by 1;
+        </sql>
     </changeSet>
 
 </databaseChangeLog>
