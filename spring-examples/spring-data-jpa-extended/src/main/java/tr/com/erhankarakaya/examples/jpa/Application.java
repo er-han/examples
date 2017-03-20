@@ -2,6 +2,8 @@ package tr.com.erhankarakaya.examples.jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import tr.com.erhankarakaya.examples.jpa.startup.InsertProductRunner;
 
 /**
  * Created by erhan.karakaya on 3/16/2017.
@@ -10,5 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
   public static void main(String[] args) {
     SpringApplication.run(Application.class, args);
+  }
+
+  @Bean
+  public InsertProductRunner insertProduct() {
+    return new InsertProductRunner();
   }
 }
