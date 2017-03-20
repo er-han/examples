@@ -33,4 +33,11 @@ public class ProductDto implements Mappable{
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("[Id: " + getId() + ", Title: " + getTitle() + ", Quantity: " + getQuantity() + "]");
+    return stringBuilder.toString();
+  }
 }
