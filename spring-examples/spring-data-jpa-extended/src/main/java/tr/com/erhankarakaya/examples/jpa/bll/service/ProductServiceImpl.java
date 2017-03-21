@@ -1,9 +1,9 @@
 package tr.com.erhankarakaya.examples.jpa.bll.service;
 
-import mapper.Mappable;
 import mapper.Mapper;
-import mapper.exception.ResultTypeInstantiationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -11,9 +11,7 @@ import tr.com.erhankarakaya.examples.jpa.bll.dto.ProductDto;
 import tr.com.erhankarakaya.examples.jpa.dal.entity.Product;
 import tr.com.erhankarakaya.examples.jpa.dal.repository.ProductRepository;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -36,12 +34,16 @@ public class ProductServiceImpl implements ProductService {
   @Override
   public List<ProductDto> findAll() {
     List<Product> products = productRepository.findAll();
-    List<ProductDto> productDtos = Mapper.getMapperFromList(products).mapToList(ProductDto::new);
+    List<ProductDto> productDtos = (List<ProductDto>) Mapper.getMapperFromList(products).mapToList(ProductDto::new);
     return productDtos;
   }
 
   @Override
-  public List<ProductDto> findAll(Pageable pageable) {
-    return null;
+  public Page<ProductDto> findAll(Pageable pageable) {
+    Page<Product> products = productRepository.findAll(pageable);
+
+    Iterable<ProductDto> productDtos = Mapper.getMapperFromList(products).mapToList(ProductDto::new);
+
+    return new PageImpl<ProductDto>((List<ProductDto>) productDtos,pageable,products.getTotalElements());
   }
 }
