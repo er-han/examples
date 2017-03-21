@@ -24,16 +24,9 @@ public class ProductController {
   ProductService productService;
 
   @RequestMapping("/getproducts")
-  public Page<ProductDto> findAll(Integer page, Integer pageSize) {
+  public Page<ProductDto> findAll(Pageable pageable) {
 
-    Page<ProductDto> productDtos;
-    if (page != null && page >= 0 && pageSize != null && pageSize > 0) {
-      Pageable pageRequest = new PageRequest(page, pageSize);
-      productDtos = productService.findAll(pageRequest);
-    } else {
-      List<ProductDto> _productDtos = productService.findAll();
-      productDtos = new PageImpl<ProductDto>(_productDtos);
-    }
+    Page<ProductDto> productDtos = productService.findAll(pageable);
 
     return productDtos;
   }
