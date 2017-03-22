@@ -5,7 +5,7 @@ import mapper.Mappable;
 /**
  * Created by erhan.karakaya on 3/17/2017.
  */
-public class ProductDto implements Mappable{
+public class ProductDto implements Mappable {
   private Integer id;
   private String title;
   private Integer quantity;
@@ -26,9 +26,9 @@ public class ProductDto implements Mappable{
     this.title = title;
   }
 
-  public Integer getQuantity() {
-    return quantity;
-  }
+//  public Integer getQuantity() {
+//    return quantity;
+//  }
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
@@ -37,7 +37,7 @@ public class ProductDto implements Mappable{
   @Override
   public String toString() {
     StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append("[Id: " + getId() + ", Title: " + getTitle() + ", Quantity: " + getQuantity() + "]");
+    stringBuilder.append("[Id: " + getId() + ", Title: " + getTitle() + ", Quantity: ]");
     return stringBuilder.toString();
   }
 }
