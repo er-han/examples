@@ -8,7 +8,7 @@
 
 
     <changeSet id="create-category-table" author="erhan.karakaya">
-        <createTable tableName="CATAGORY">
+        <createTable tableName="CATEGORY">
             <column name="ID" type="NUMBER">
                 <constraints primaryKey="true" primaryKeyName="PK_Category_Id" nullable="false"/>
             </column>
