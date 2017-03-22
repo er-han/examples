@@ -26,9 +26,9 @@ public class ProductDto implements Mappable {
     this.title = title;
   }
 
-//  public Integer getQuantity() {
-//    return quantity;
-//  }
+  public Integer getQuantity() {
+    return quantity;
+  }
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
