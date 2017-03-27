@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile files('src/main/resources/lib/ojdbc14.jar')
+    compile files('src/main/resources/lib/mapper.jar')
+
+    testCompile 'junit:junit:4.12'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+bootRun {
+    addResources = true
+}
