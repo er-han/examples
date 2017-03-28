@@ -1,0 +1,14 @@
+# Package Files #
+*.jar
+
+# IntelliJ
+/out/
+.idea/
+*.iml
+### Gradle template
+.gradle
+/build/
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+!mapper.jar
