@@ -1,4 +1,4 @@
-package tr.com.erhankarakaya.examples.jpa.pl.controller;
+package tr.com.erhankarakaya.examples.jpa.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

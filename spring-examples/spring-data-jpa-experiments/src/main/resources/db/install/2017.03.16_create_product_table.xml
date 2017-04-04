@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="create-product-table" author="erhan.karakaya">
+        <createTable tableName="PRODUCT">
+            <column name="ID" type="NUMBER">
+                <constraints primaryKey="true" primaryKeyName="PK_Product_Id" nullable="false"/>
+            </column>
+            <column name="TITLE" type="NVARCHAR2(250)"/>
+            <column name="QUANTITY" type="NUMBER"/>
+        </createTable>
+        <sql>
+            create sequence SEQ_Product_Id
+            minvalue 1
+            maxvalue 9999999999999999999999999999
+            start with 1
+            increment by 1;
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
