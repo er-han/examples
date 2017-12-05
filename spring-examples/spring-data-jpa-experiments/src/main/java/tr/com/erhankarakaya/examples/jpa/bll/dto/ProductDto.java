@@ -43,6 +43,16 @@ public class ProductDto implements Mappable {
     this.quantity = quantity;
   }
 
+  private CategoryDto categoryDto;
+
+  public CategoryDto getCategoryDto() {
+    return categoryDto;
+  }
+
+  public void setCategoryDto(CategoryDto categoryDto) {
+    this.categoryDto = categoryDto;
+  }
+
   @Override
   public String toString() {
     StringBuilder stringBuilder = new StringBuilder();

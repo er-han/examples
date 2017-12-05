@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import tr.com.erhankarakaya.examples.jpa.dal.entity.Product;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer>{
+public interface ProductRepository extends BaseRepository<Product, Integer> {
 }

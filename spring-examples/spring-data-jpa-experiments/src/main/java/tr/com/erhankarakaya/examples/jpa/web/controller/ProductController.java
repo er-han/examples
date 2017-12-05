@@ -5,9 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -27,10 +29,26 @@ public class ProductController {
   @Autowired
   ProductService productService;
 
+  @Autowired
+  private JdbcTemplate jdbcTemplate;
+
   @RequestMapping("/products")
   public String findAll(Pageable pageable, Model model) {
 
-    Page<ProductDto> productDtos = productService.findAll(pageable);
+    List<ProductDto> productDtos = productService.findAll();
+
+    model.addAttribute("products", productDtos);
+
+    return "products";
+  }
+
+  @RequestMapping("/products2")
+  public String findAll2(Pageable pageable, Model model) {
+
+    Assert.notNull(jdbcTemplate, "gferfrgr");
+
+    List<ProductDto> productDtos = productService.getAll();
+
 
     model.addAttribute("products", productDtos);
 

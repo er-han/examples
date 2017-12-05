@@ -7,21 +7,15 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 
-    <changeSet id="create-product-table" author="erhan.karakaya">
-        <createTable tableName="PRODUCT">
+    <changeSet id="create-category-table" author="erhan.karakaya">
+        <createTable tableName="CATEGORY">
             <column name="ID" type="NUMBER">
-                <constraints primaryKey="true" primaryKeyName="PK_Product_Id" nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="PK_Category_Id" nullable="false"/>
             </column>
             <column name="TITLE" type="NVARCHAR2(250)"/>
-            <column name="QUANTITY" type="NUMBER"/>
-            <column name="CATEGORY_ID" type="NUMBER">
-                <constraints nullable="false" foreignKeyName="FK_PRODUCT_CATEGORY"
-                             referencedTableName="CATEGORY"
-                             referencedColumnNames="ID"/>
-            </column>
         </createTable>
         <sql>
-            create sequence SEQ_Product_Id
+            create sequence SEQ_Category_Id
             minvalue 1
             maxvalue 9999999999999999999999999999
             start with 1

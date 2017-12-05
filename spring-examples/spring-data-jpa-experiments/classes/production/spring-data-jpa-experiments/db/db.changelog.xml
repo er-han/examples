@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <include file="/db/install/2017.03.22_create_category_table.xml"/>
     <include file="/db/install/2017.03.16_create_product_table.xml"/>
+    <include file="/db/install/2017.03.22_create_category_table.xml"/>
 
 </databaseChangeLog>

@@ -14,11 +14,6 @@
             </column>
             <column name="TITLE" type="NVARCHAR2(250)"/>
             <column name="QUANTITY" type="NUMBER"/>
-            <column name="CATEGORY_ID" type="NUMBER">
-                <constraints nullable="false" foreignKeyName="FK_PRODUCT_CATEGORY"
-                             referencedTableName="CATEGORY"
-                             referencedColumnNames="ID"/>
-            </column>
         </createTable>
         <sql>
             create sequence SEQ_Product_Id

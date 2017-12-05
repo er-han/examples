@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "PRODUCT")
-public class Product implements Mappable{
+public class Product extends BaseEntity{
   @Id
   @SequenceGenerator(name="SEQ_GEN", sequenceName="SEQ_Product_Id", allocationSize=1)
   @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_GEN")
@@ -18,6 +18,29 @@ public class Product implements Mappable{
 
   @Column(name = "QUANTITY", columnDefinition = "NUMBER")
   private Integer quantity;
+
+//  @Column(name = "CATEGORY_ID")
+//  private Integer categoryId;
+
+  @ManyToOne()
+  @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
+  private Category category;
+
+//  public Integer getCategoryId() {
+//    return categoryId;
+//  }
+//
+//  public void setCategoryId(Integer categoryId) {
+//    this.categoryId = categoryId;
+//  }
+
+  public Category getCategory() {
+    return category;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
 
   public Integer getId() {
     return id;
@@ -42,4 +65,5 @@ public class Product implements Mappable{
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
+
 }

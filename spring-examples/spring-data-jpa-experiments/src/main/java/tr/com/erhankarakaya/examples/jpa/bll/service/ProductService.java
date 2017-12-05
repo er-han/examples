@@ -13,4 +13,6 @@ public interface ProductService {
 
   List<ProductDto> findAll();
   Page<ProductDto> findAll(Pageable pageable);
+
+  List<ProductDto> getAll();
 }
